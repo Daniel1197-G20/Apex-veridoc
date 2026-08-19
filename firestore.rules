@@ -1,0 +1,19 @@
+rules_version = '2';
+
+// Design: the React client never talks to Firestore directly. Every read
+// and write goes through a Cloud Function (callable or HTTPS), which uses
+// the Admin SDK — Admin SDK access bypasses these rules entirely, so this
+// file's job is purely to make sure NOTHING is reachable if a client SDK
+// call is ever made directly against Firestore, whether by mistake or by
+// a malicious actor with a stolen client config (which is public anyway).
+//
+// This keeps tenant isolation, RBAC, and audit logging centralized in one
+// place (functions/src/lib/rbac.ts + audit.ts) instead of duplicated across
+// security rules and function code.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

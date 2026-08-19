@@ -1,0 +1,14 @@
+rules_version = '2';
+
+// Same rationale as firestore.rules: credential template files and generated
+// certificates are uploaded/read via Cloud Functions using the Admin SDK
+// (which bypasses these rules), so direct client access is denied outright.
+// Public certificate images, if ever served directly to the browser, are
+// exposed via signed URLs minted by a Cloud Function, not open bucket rules.
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}
