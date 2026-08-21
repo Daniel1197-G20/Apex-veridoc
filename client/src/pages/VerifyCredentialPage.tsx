@@ -9,6 +9,7 @@ import {
   Lock,
   Check,
   Copy,
+  Sparkles,
 } from "lucide-react";
 
 export default function VerifyCredentialPage() {
@@ -55,17 +56,17 @@ export default function VerifyCredentialPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#06090e] text-slate-100 font-sans selection:bg-emerald-500/30 selection:text-white">
+    <div className="min-h-screen bg-[#120E0C] text-[#F7F4F0] font-sans selection:bg-[#D9662B]/30 selection:text-white wallpaper-surface">
       {/* Top Public Navigation */}
-      <header className="border-b border-slate-800/80 bg-[#0a101d]/80 backdrop-blur-xl px-6 py-4">
+      <header className="border-b border-[#D9662B]/15 bg-[#120E0C]/90 backdrop-blur-xl px-4 sm:px-8 py-3.5">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3">
-            <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center shadow-lg shadow-emerald-600/30">
-              <ShieldCheck className="h-5 w-5 text-white" />
+          <Link to="/" className="flex items-center gap-2.5 group">
+            <div className="h-9 w-9 rounded-xl bg-[#D9662B] flex items-center justify-center shadow-md shadow-[#D9662B]/30 text-white font-bold transition group-hover:scale-105">
+              <ShieldCheck className="h-5 w-5" />
             </div>
             <div>
               <span className="font-bold tracking-tight text-white text-base">Apex Veridoc</span>
-              <p className="text-[10px] text-emerald-400 font-mono">Public Verification Authority</p>
+              <p className="text-[10px] text-[#F08047] font-medium">Public Verification Authority</p>
             </div>
           </Link>
 
@@ -73,7 +74,7 @@ export default function VerifyCredentialPage() {
             to="/login"
             className="btn-secondary text-xs py-2 px-3.5"
           >
-            <span>Sign in to Organization</span>
+            <span>Sign In to Organization</span>
           </Link>
         </div>
       </header>
@@ -81,28 +82,28 @@ export default function VerifyCredentialPage() {
       {/* Main Verification Body */}
       <main className="max-w-4xl mx-auto px-4 py-12 space-y-8">
         <div className="text-center space-y-3">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-mono">
-            <Lock className="h-3.5 w-3.5 text-emerald-400" />
-            CRYPTOGRAPHIC LEDGER VERIFICATION
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#D9662B]/15 border border-[#D9662B]/30 text-[#D9662B] text-xs font-semibold">
+            <Sparkles className="h-3.5 w-3.5" />
+            <span>Cryptographic Ledger Lookup</span>
           </div>
           <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-white">
             Verify Digital Credential Authenticity
           </h1>
-          <p className="text-sm text-slate-400 max-w-xl mx-auto">
+          <p className="text-sm text-[#A89890] max-w-xl mx-auto">
             Instant tamper-proof attestation lookup. Enter any Credential ID or scan the QR token to verify cryptographic signature validity.
           </p>
         </div>
 
         {/* Verification Search Bar */}
         <form onSubmit={handleSearch} className="max-w-xl mx-auto">
-          <div className="flex items-center gap-2 p-1.5 rounded-2xl bg-[#0a101d] border border-slate-800 focus-within:border-emerald-500/80 shadow-2xl transition">
-            <Search className="h-5 w-5 text-slate-500 ml-3 shrink-0" />
+          <div className="flex items-center gap-2 p-1.5 rounded-2xl bg-[#181210] border border-[#D9662B]/25 focus-within:border-[#D9662B] shadow-2xl transition">
+            <Search className="h-4 w-4 text-[#8A7B73] ml-3 shrink-0" />
             <input
               type="text"
               value={inputVal}
               onChange={(e) => setInputVal(e.target.value)}
-              placeholder="e.g. CRD-2026-889104 or full number"
-              className="bg-transparent border-none outline-none text-sm text-white placeholder-slate-500 w-full px-2 py-2 font-mono"
+              placeholder="e.g. CRD-2026-889104 or APEX-VERIDOC-..."
+              className="bg-transparent border-none outline-none text-sm text-[#F7F4F0] placeholder-[#8A7B73] w-full px-2 py-2 font-mono"
             />
             <button type="submit" disabled={isSearching} className="btn-primary text-xs py-2.5 px-5">
               {isSearching ? "Verifying…" : "Verify"}
@@ -112,49 +113,49 @@ export default function VerifyCredentialPage() {
 
         {/* Verification Outcome Box */}
         {result ? (
-          <div className="card-surface p-8 space-y-6 border-emerald-500/40 bg-[#0a101d]/80 animate-in fade-in slide-in-from-bottom-3 duration-200">
+          <div className="card-surface p-6 sm:p-8 space-y-6 border-[#D9662B]/30 animate-in fade-in slide-in-from-bottom-3 duration-200">
             {/* Status Header */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
-              <div className="flex items-center gap-3">
-                <div className="h-12 w-12 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center border border-emerald-500/40">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[#D9662B]/15">
+              <div className="flex items-center gap-3.5">
+                <div className="h-12 w-12 rounded-2xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center border border-emerald-500/30 shrink-0">
                   <CheckCircle2 className="h-7 w-7" />
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
                     <span className="text-base font-bold text-white">Cryptographically Verified</span>
-                    <span className="stat-badge bg-emerald-500/10 text-emerald-300 border border-emerald-500/30">
+                    <span className="badge-emerald">
                       AUTHENTIC
                     </span>
                   </div>
-                  <p className="text-xs text-slate-400 font-mono mt-0.5">
-                    ID: {result.id} • {result.credentialNumber}
+                  <p className="text-xs text-[#A89890] mt-0.5">
+                    ID: <span className="font-mono text-[#F7F4F0]">{result.id}</span> • {result.credentialNumber}
                   </p>
                 </div>
               </div>
 
-              <div className="text-right font-mono text-xs text-slate-400">
+              <div className="text-right text-xs text-[#A89890]">
                 <span>Issue Date: </span>
-                <span className="text-slate-200 font-medium">{result.issueDate}</span>
+                <span className="text-[#F7F4F0] font-medium">{result.issueDate}</span>
               </div>
             </div>
 
             {/* Recipient & Programme Card Details */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs">
-              <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 space-y-2">
-                <p className="font-mono text-[10px] uppercase text-slate-400">Credential Recipient</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 text-xs">
+              <div className="p-4 rounded-xl bg-[#181210] border border-[#D9662B]/18 space-y-2">
+                <p className="text-[10px] uppercase font-semibold text-[#8A7B73]">Credential Recipient</p>
                 <p className="text-base font-semibold text-white">{result.recipientName}</p>
-                <p className="text-slate-400 font-mono">{result.recipientEmail}</p>
-                <div className="pt-2 flex items-center gap-2 text-emerald-400">
+                <p className="text-[#A89890]">{result.recipientEmail}</p>
+                <div className="pt-2 flex items-center gap-2 text-emerald-400 font-medium">
                   <CheckCircle2 className="h-3.5 w-3.5" />
                   <span>100% Attendance Verified & Gated</span>
                 </div>
               </div>
 
-              <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 space-y-2">
-                <p className="font-mono text-[10px] uppercase text-slate-400">Issuing Organization</p>
+              <div className="p-4 rounded-xl bg-[#181210] border border-[#D9662B]/18 space-y-2">
+                <p className="text-[10px] uppercase font-semibold text-[#8A7B73]">Issuing Organization</p>
                 <p className="text-base font-semibold text-white">{result.issuerOrg}</p>
-                <p className="text-slate-400 font-mono">Authority: {result.issuerName}</p>
-                <div className="pt-2 flex items-center gap-2 text-teal-400">
+                <p className="text-[#A89890]">Authority: {result.issuerName}</p>
+                <div className="pt-2 flex items-center gap-2 text-[#F08047] font-medium">
                   <ShieldCheck className="h-3.5 w-3.5" />
                   <span>Authoritative Root Issuer Key</span>
                 </div>
@@ -162,14 +163,14 @@ export default function VerifyCredentialPage() {
             </div>
 
             {/* Programme & Attestation Details */}
-            <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 space-y-2 text-xs">
-              <p className="font-mono text-[10px] uppercase text-slate-400">Attestation Description</p>
-              <p className="text-sm font-semibold text-emerald-200">{result.programmeTitle}</p>
+            <div className="p-4 rounded-xl bg-[#181210] border border-[#D9662B]/18 space-y-2 text-xs">
+              <p className="text-[10px] uppercase font-semibold text-[#8A7B73]">Attestation Description</p>
+              <p className="text-sm font-semibold text-[#F4B27C]">{result.programmeTitle}</p>
               <div className="flex flex-wrap gap-1.5 pt-1">
                 {result.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700"
+                    className="badge-neutral text-[11px]"
                   >
                     {skill}
                   </span>
@@ -178,29 +179,30 @@ export default function VerifyCredentialPage() {
             </div>
 
             {/* Cryptographic SHA-256 HMAC Signature Verification */}
-            <div className="p-4 rounded-xl bg-slate-950/90 border border-slate-800 space-y-2 text-xs font-mono">
+            <div className="p-4 rounded-xl bg-[#140E0C] border border-[#D9662B]/20 space-y-2 text-xs">
               <div className="flex items-center justify-between">
-                <span className="text-emerald-400 font-medium flex items-center gap-1.5">
+                <span className="text-[#F08047] font-medium flex items-center gap-1.5">
                   <Lock className="h-3.5 w-3.5" /> SHA-256 Cryptographic Signature Digest
                 </span>
                 <button
                   onClick={copyHash}
-                  className="flex items-center gap-1 text-slate-400 hover:text-emerald-300 transition cursor-pointer"
+                  className="flex items-center gap-1 text-[#A89890] hover:text-white transition cursor-pointer"
+                  aria-label="Copy Digest"
                 >
                   {copied ? <Check className="h-3 w-3 text-emerald-400" /> : <Copy className="h-3 w-3" />}
                   <span>{copied ? "Copied" : "Copy Digest"}</span>
                 </button>
               </div>
-              <div className="p-2.5 rounded-lg bg-black/60 border border-slate-800/80 text-slate-300 break-all select-all">
+              <div className="p-2.5 rounded-lg bg-[#0E0A08] border border-[#D9662B]/15 text-[#B8AAA2] break-all select-all font-mono">
                 {result.sha256Digest}
               </div>
             </div>
           </div>
         ) : (
-          <div className="card-surface p-8 text-center space-y-3 border-red-500/30">
+          <div className="card-surface p-8 text-center space-y-3 border-amber-500/30">
             <AlertTriangle className="h-10 w-10 text-amber-400 mx-auto" />
-            <h3 className="text-lg font-semibold text-white">Credential Not Found</h3>
-            <p className="text-xs text-slate-400 max-w-sm mx-auto">
+            <h2 className="text-lg font-semibold text-white">Credential Not Found</h2>
+            <p className="text-xs text-[#A89890] max-w-sm mx-auto">
               No active certificate matches ID &ldquo;{inputVal}&rdquo;. Please verify the spelling or check the QR code link.
             </p>
           </div>
@@ -209,4 +211,5 @@ export default function VerifyCredentialPage() {
     </div>
   );
 }
+
 

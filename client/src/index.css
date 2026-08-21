@@ -2,74 +2,127 @@
 
 @layer base {
   :root {
-    --color-bg-base: #090d16;
-    --color-bg-surface: #0e1526;
-    --color-bg-surface-elevated: #141d33;
-    --color-border-subtle: rgba(51, 65, 85, 0.4);
-    --color-border-strong: rgba(71, 85, 105, 0.6);
+    --color-orange: #D9662B;
+    --color-orange-hover: #C2551F;
+    --color-orange-light: #F08047;
+    --color-orange-glow: rgba(217, 102, 43, 0.25);
+    --color-charcoal-deep: #100C0A;
+    --color-charcoal-base: #140F0D;
+    --color-charcoal-surface: #1D1613;
+    --color-charcoal-elevated: #281F1A;
+    --color-charcoal-card: #181210;
+    --color-charcoal-border: rgba(217, 102, 43, 0.18);
+    --color-offwhite: #F7F4F0;
+    --color-muted: #A89890;
+    --color-subtle: #8A7B73;
   }
 
   * {
-    border-color: var(--color-border-subtle);
+    border-color: rgba(217, 102, 43, 0.14);
     -webkit-tap-highlight-color: transparent;
   }
 
   body {
-    background-color: #080d1a;
-    color: #f1f5f9;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #120E0C;
+    color: #F7F4F0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "SF Pro Display", "SF Pro Text", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
   }
 
   ::selection {
-    background-color: rgba(16, 185, 129, 0.25);
-    color: #ffffff;
+    background-color: rgba(217, 102, 43, 0.35);
+    color: #FFFFFF;
   }
 
-  /* Refined scrollbars */
+  /* Refined warm scrollbars */
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #080d1a;
+    background: #120E0C;
   }
   ::-webkit-scrollbar-thumb {
-    background: #1e293b;
+    background: #2C221D;
     border-radius: 9999px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #10b981;
+    background: #D9662B;
   }
 }
 
 @layer components {
+  /* Warm editorial wallpaper background */
+  .wallpaper-surface {
+    background-color: #120E0C;
+    background-image: 
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(217, 102, 43, 0.28), transparent 70%),
+      radial-gradient(circle at 100% 100%, rgba(217, 102, 43, 0.12), transparent 45%),
+      linear-gradient(to bottom, #120E0C, #181310);
+    background-attachment: fixed;
+  }
+
+  .wallpaper-warm {
+    background-color: #D9662B;
+    background-image: 
+      radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.15), transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(18, 14, 12, 0.25), transparent 60%);
+  }
+
   .input {
-    @apply w-full rounded-xl border border-slate-800/90 bg-[#0d1424]/90 px-3.5 py-2.5 text-sm text-slate-100 placeholder-slate-500 outline-none transition duration-150 focus:border-emerald-500/80 focus:bg-[#111a2e] focus:ring-2 focus:ring-emerald-500/15 disabled:cursor-not-allowed disabled:opacity-50;
+    @apply w-full rounded-xl border border-[#D9662B]/20 bg-[#16100E]/95 px-3.5 py-2.5 text-sm text-[#F7F4F0] placeholder-[#8A7B73] outline-none transition duration-150 focus:border-[#D9662B] focus:bg-[#201814] focus:ring-2 focus:ring-[#D9662B]/20 disabled:cursor-not-allowed disabled:opacity-50;
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-500 px-4 py-2.5 text-sm font-semibold text-slate-950 shadow-sm shadow-emerald-500/20 transition-all duration-150 hover:bg-emerald-400 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer;
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-[#D9662B] px-4 py-2.5 text-sm font-semibold text-white shadow-md shadow-[#D9662B]/25 transition-all duration-150 hover:bg-[#C2551F] hover:shadow-[#D9662B]/35 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D9662B] focus-visible:ring-offset-2 focus-visible:ring-offset-[#120E0C] disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700/70 bg-[#0f172a]/90 px-4 py-2.5 text-sm font-medium text-slate-200 shadow-sm backdrop-blur-sm transition-all duration-150 hover:border-slate-600 hover:bg-[#1e293b] hover:text-white active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer;
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-[#D9662B]/25 bg-[#1F1714]/90 px-4 py-2.5 text-sm font-medium text-[#F7F4F0] shadow-sm backdrop-blur-sm transition-all duration-150 hover:border-[#D9662B]/50 hover:bg-[#2A201B] hover:text-white active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D9662B] focus-visible:ring-offset-2 focus-visible:ring-offset-[#120E0C] disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer;
   }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl px-3 py-2 text-sm font-medium text-slate-400 transition duration-150 hover:bg-slate-800/70 hover:text-slate-200 active:scale-[0.98] cursor-pointer;
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-3 py-2 text-sm font-medium text-[#B8AAA2] transition duration-150 hover:bg-[#221A16] hover:text-white active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D9662B] disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer;
   }
 
   .card-surface {
-    @apply rounded-2xl border border-slate-800/80 bg-[#0d1424]/85 backdrop-blur-md shadow-lg shadow-black/20;
+    @apply rounded-2xl border border-[#D9662B]/15 bg-[#17110F]/90 backdrop-blur-md shadow-xl shadow-black/40 transition duration-200;
+  }
+
+  .card-charcoal-deep {
+    @apply rounded-2xl border border-[#D9662B]/12 bg-[#120E0C] shadow-2xl;
+  }
+
+  .card-orange-specimen {
+    @apply rounded-2xl bg-[#D9662B] text-[#120E0C] p-6 shadow-xl shadow-[#D9662B]/20;
   }
 
   .stat-badge {
     @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-medium;
   }
 
-  /* Utility for hide scrollbars on mobile tabs */
+  .badge-orange {
+    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-medium bg-[#D9662B]/15 text-[#F08047] border border-[#D9662B]/30;
+  }
+
+  .badge-emerald {
+    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-medium bg-emerald-500/15 text-emerald-300 border border-emerald-500/30;
+  }
+
+  .badge-amber {
+    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-medium bg-amber-500/15 text-amber-300 border border-amber-500/30;
+  }
+
+  .badge-rose {
+    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-medium bg-rose-500/15 text-rose-300 border border-rose-500/30;
+  }
+
+  .badge-neutral {
+    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-medium bg-[#221A16] text-[#A89890] border border-[#D9662B]/20;
+  }
+
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }

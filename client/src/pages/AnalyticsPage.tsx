@@ -5,6 +5,9 @@ import {
   ShieldCheck,
   CheckCircle2,
   FileCode,
+  Sparkles,
+  BarChart3,
+  Users,
 } from "lucide-react";
 
 export default function AnalyticsPage() {
@@ -20,8 +23,12 @@ export default function AnalyticsPage() {
       {/* Header & Export CTA */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#D9662B]/15 border border-[#D9662B]/30 text-[#D9662B] text-xs font-semibold mb-2">
+            <Sparkles className="h-3.5 w-3.5" />
+            <span>Telemetry & Insights</span>
+          </div>
           <h1 className="text-2xl font-bold tracking-tight text-white">Demographic & Attendance Analytics</h1>
-          <p className="mt-1 text-xs text-slate-400">
+          <p className="mt-0.5 text-xs text-[#A89890]">
             Real-time cohort velocity, attendance drop-off curves, and automated compliance telemetry.
           </p>
         </div>
@@ -31,7 +38,7 @@ export default function AnalyticsPage() {
             onClick={() => triggerDownload("JSON-LD Audit Proof")}
             className="btn-secondary text-xs py-2 px-3"
           >
-            <FileCode className="h-3.5 w-3.5 text-emerald-400" />
+            <FileCode className="h-3.5 w-3.5 text-[#D9662B]" />
             <span>Export JSON-LD</span>
           </button>
           <button
@@ -45,30 +52,47 @@ export default function AnalyticsPage() {
       </div>
 
       {downloadSuccess && (
-        <div className="p-3.5 rounded-xl bg-emerald-950/40 border border-emerald-500/40 text-emerald-300 text-xs font-mono flex items-center gap-2 animate-in fade-in duration-150">
-          <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+        <div className="p-3.5 rounded-xl bg-emerald-950/50 border border-emerald-500/40 text-emerald-200 text-xs flex items-center gap-2 animate-in fade-in duration-150">
+          <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0" />
           <span>{downloadSuccess}</span>
         </div>
       )}
 
-      {/* Metric Highlights */}
+      {/* Metric Highlights (No left borders, clean card tokens) */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div className="card-surface p-5 border-l-2 border-l-emerald-500">
-          <span className="text-xs text-slate-400 font-medium">Cohort Qualification Rate</span>
-          <div className="mt-2 text-2xl font-bold font-mono text-white">91.6%</div>
-          <p className="text-xs text-slate-500 mt-1">Met required ≥80% attendance threshold</p>
+        <div className="card-surface p-5 space-y-2">
+          <div className="flex items-center justify-between">
+            <span className="text-xs text-[#A89890] font-medium">Cohort Qualification Rate</span>
+            <div className="h-7 w-7 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center">
+              <CheckCircle2 className="h-4 w-4" />
+            </div>
+          </div>
+          <div className="text-2xl font-bold font-mono text-white">91.6%</div>
+          <p className="text-xs text-[#A89890]">Met required ≥80% attendance threshold</p>
         </div>
-        <div className="card-surface p-5 border-l-2 border-l-teal-500">
-          <span className="text-xs text-slate-400 font-medium">Session Retention Index</span>
-          <div className="mt-2 text-2xl font-bold font-mono text-white">96.8%</div>
-          <p className="text-xs text-teal-400 mt-1 flex items-center gap-1">
+
+        <div className="card-surface p-5 space-y-2">
+          <div className="flex items-center justify-between">
+            <span className="text-xs text-[#A89890] font-medium">Session Retention Index</span>
+            <div className="h-7 w-7 rounded-lg bg-[#D9662B]/15 text-[#D9662B] flex items-center justify-center">
+              <BarChart3 className="h-4 w-4" />
+            </div>
+          </div>
+          <div className="text-2xl font-bold font-mono text-white">96.8%</div>
+          <p className="text-xs text-[#F08047] flex items-center gap-1">
             <TrendingUp className="h-3.5 w-3.5" /> +4.2% higher than industry average
           </p>
         </div>
-        <div className="card-surface p-5 border-l-2 border-l-cyan-500">
-          <span className="text-xs text-slate-400 font-medium">Digital Credentials Verified</span>
-          <div className="mt-2 text-2xl font-bold font-mono text-white">384 Queries</div>
-          <p className="text-xs text-slate-500 mt-1">100% cryptographic integrity verified</p>
+
+        <div className="card-surface p-5 space-y-2">
+          <div className="flex items-center justify-between">
+            <span className="text-xs text-[#A89890] font-medium">Digital Credentials Verified</span>
+            <div className="h-7 w-7 rounded-lg bg-[#D9662B]/15 text-[#D9662B] flex items-center justify-center">
+              <Users className="h-4 w-4" />
+            </div>
+          </div>
+          <div className="text-2xl font-bold font-mono text-white">384 Queries</div>
+          <p className="text-xs text-[#A89890]">100% cryptographic integrity verified</p>
         </div>
       </div>
 
@@ -79,9 +103,9 @@ export default function AnalyticsPage() {
           <div className="flex items-center justify-between">
             <div>
               <h3 className="text-sm font-semibold text-white">Attendance Velocity Across Sessions</h3>
-              <p className="text-xs text-slate-400">Track drop-off rate per curriculum module</p>
+              <p className="text-xs text-[#A89890]">Track drop-off rate per curriculum module</p>
             </div>
-            <span className="text-xs font-mono text-emerald-400">AIG-2026 Cohort</span>
+            <span className="badge-orange">AIG-2026 Cohort</span>
           </div>
 
           <div className="space-y-3 pt-2">
@@ -95,13 +119,13 @@ export default function AnalyticsPage() {
             ].map((s, idx) => (
               <div key={idx} className="space-y-1">
                 <div className="flex items-center justify-between text-xs">
-                  <span className="text-slate-300 font-medium">{s.session}</span>
-                  <span className="font-mono text-slate-400">{s.count} {s.rate > 0 && `(${s.rate}%)`}</span>
+                  <span className="text-[#F7F4F0] font-medium">{s.session}</span>
+                  <span className="text-[#A89890]">{s.count} {s.rate > 0 && `(${s.rate}%)`}</span>
                 </div>
-                <div className="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
+                <div className="w-full h-2 rounded-full bg-[#120E0C] overflow-hidden">
                   <div
                     className={`h-full rounded-full transition-all duration-500 ${
-                      s.rate > 0 ? "bg-gradient-to-r from-emerald-500 to-teal-400" : "bg-transparent"
+                      s.rate > 0 ? "bg-[#D9662B]" : "bg-transparent"
                     }`}
                     style={{ width: `${s.rate}%` }}
                   />
@@ -116,24 +140,24 @@ export default function AnalyticsPage() {
           <div className="flex items-center justify-between">
             <div>
               <h3 className="text-sm font-semibold text-white">Organization Distribution</h3>
-              <p className="text-xs text-slate-400">Breakdown of participating industry sectors</p>
+              <p className="text-xs text-[#A89890]">Breakdown of participating industry sectors</p>
             </div>
-            <span className="text-xs font-mono text-emerald-400">100% Verified</span>
+            <span className="badge-emerald">100% Verified</span>
           </div>
 
           <div className="space-y-3.5 pt-2">
             {[
-              { sector: "Higher Education & Research", share: 38, count: "86 Attendees", color: "bg-emerald-500" },
-              { sector: "Enterprise Technology & AI", share: 29, count: "65 Attendees", color: "bg-teal-500" },
-              { sector: "Financial Services & FinTech", share: 18, count: "41 Attendees", color: "bg-cyan-500" },
+              { sector: "Higher Education & Research", share: 38, count: "86 Attendees", color: "bg-[#D9662B]" },
+              { sector: "Enterprise Technology & AI", share: 29, count: "65 Attendees", color: "bg-[#F08047]" },
+              { sector: "Financial Services & FinTech", share: 18, count: "41 Attendees", color: "bg-emerald-500" },
               { sector: "Government & Regulatory Bodies", share: 15, count: "33 Attendees", color: "bg-amber-500" },
             ].map((sec, idx) => (
               <div key={idx} className="space-y-1">
                 <div className="flex items-center justify-between text-xs">
-                  <span className="text-slate-300 font-medium">{sec.sector}</span>
-                  <span className="font-mono text-slate-400">{sec.count} ({sec.share}%)</span>
+                  <span className="text-[#F7F4F0] font-medium">{sec.sector}</span>
+                  <span className="text-[#A89890]">{sec.count} ({sec.share}%)</span>
                 </div>
-                <div className="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
+                <div className="w-full h-2 rounded-full bg-[#120E0C] overflow-hidden">
                   <div
                     className={`h-full rounded-full ${sec.color}`}
                     style={{ width: `${sec.share}%` }}
@@ -143,8 +167,8 @@ export default function AnalyticsPage() {
             ))}
           </div>
 
-          <div className="mt-4 p-3 rounded-xl bg-slate-950/70 border border-slate-800 text-[11px] text-slate-400 font-mono flex items-center gap-2">
-            <ShieldCheck className="h-4 w-4 text-emerald-400 shrink-0" />
+          <div className="mt-4 p-3 rounded-xl bg-[#140E0C] border border-[#D9662B]/20 text-[11px] text-[#A89890] flex items-center gap-2">
+            <ShieldCheck className="h-4 w-4 text-[#D9662B] shrink-0" />
             <span>Zero cross-tenant leakage: metrics calculated strictly within organization boundary.</span>
           </div>
         </div>
@@ -152,4 +176,5 @@ export default function AnalyticsPage() {
     </div>
   );
 }
+
 

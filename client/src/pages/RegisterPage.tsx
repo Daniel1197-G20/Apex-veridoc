@@ -17,6 +17,7 @@ import {
   EyeOff,
   CheckCircle2,
   ArrowRight,
+  Sparkles,
 } from "lucide-react";
 
 const ORG_TYPES: OrganizationType[] = [
@@ -81,10 +82,10 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-[#080d1a] px-4 py-8 sm:py-12 font-sans selection:bg-emerald-500/25 selection:text-white relative">
+    <div className="min-h-screen flex flex-col justify-center items-center bg-[#120E0C] px-4 py-8 sm:py-12 font-sans selection:bg-[#D9662B]/30 selection:text-white wallpaper-surface relative">
       {/* Brand Header */}
       <Link to="/" className="flex items-center gap-2.5 mb-6 group relative z-10">
-        <div className="h-10 w-10 rounded-xl bg-emerald-500 flex items-center justify-center text-slate-950 font-bold shadow-md shadow-emerald-500/20 transition group-hover:scale-105">
+        <div className="h-10 w-10 rounded-xl bg-[#D9662B] flex items-center justify-center text-white font-bold shadow-md shadow-[#D9662B]/30 transition group-hover:scale-105">
           <ShieldCheck className="h-5 w-5" />
         </div>
         <div>
@@ -92,16 +93,20 @@ export default function RegisterPage() {
         </div>
       </Link>
 
-      <div className="card-surface w-full max-w-xl p-6 sm:p-8 bg-[#0b1120] border-slate-800 shadow-xl relative z-10 space-y-5">
-        <div>
-          <h1 className="text-2xl font-bold tracking-tight text-white">Create Your Organization</h1>
-          <p className="mt-1 text-xs text-slate-400">
+      <div className="card-surface w-full max-w-xl p-6 sm:p-8 shadow-2xl relative z-10 space-y-5">
+        <div className="space-y-1">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#D9662B]/15 border border-[#D9662B]/30 text-[#D9662B] text-xs font-semibold">
+            <Sparkles className="h-3.5 w-3.5" />
+            <span>Workspace Setup</span>
+          </div>
+          <h1 className="text-2xl font-bold tracking-tight text-white pt-1">Create Your Organization</h1>
+          <p className="text-xs text-[#A89890]">
             Set up an isolated workspace for programmes, live attendance, and digital credential issuance.
           </p>
         </div>
 
         {error && (
-          <div className="p-3.5 rounded-xl bg-rose-950/40 border border-rose-500/40 text-rose-300 text-xs flex items-start gap-2.5 animate-in fade-in duration-150">
+          <div className="p-3.5 rounded-xl bg-rose-950/50 border border-rose-500/40 text-rose-200 text-xs flex items-start gap-2.5 animate-in fade-in duration-150">
             <AlertCircle className="h-4 w-4 text-rose-400 shrink-0 mt-0.5" />
             <span className="leading-relaxed">{error}</span>
           </div>
@@ -109,17 +114,17 @@ export default function RegisterPage() {
 
         <form onSubmit={handleSubmit} className="space-y-4 text-xs">
           {/* Organization Information Group */}
-          <div className="p-4 rounded-xl bg-[#0f172a] border border-slate-800 space-y-3">
-            <p className="text-xs text-slate-300 font-semibold uppercase tracking-wider">
+          <div className="p-4 rounded-xl bg-[#181210] border border-[#D9662B]/18 space-y-3">
+            <p className="text-xs text-[#F7F4F0] font-semibold uppercase tracking-wider">
               1. Organization Profile
             </p>
 
             <div>
-              <label className="block text-xs font-medium text-slate-300 mb-1">
+              <label className="block text-xs font-medium text-[#F7F4F0] mb-1">
                 Organization / Institution Name
               </label>
               <div className="relative">
-                <Building2 className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+                <Building2 className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#8A7B73]" />
                 <input
                   required
                   value={form.organizationName}
@@ -132,7 +137,7 @@ export default function RegisterPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label className="block text-xs font-medium text-slate-300 mb-1">
+                <label className="block text-xs font-medium text-[#F7F4F0] mb-1">
                   Organization Type
                 </label>
                 <select
@@ -149,9 +154,9 @@ export default function RegisterPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-slate-300 mb-1">Country / Region</label>
+                <label className="block text-xs font-medium text-[#F7F4F0] mb-1">Country / Region</label>
                 <div className="relative">
-                  <Globe className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+                  <Globe className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#8A7B73]" />
                   <input
                     required
                     value={form.country}
@@ -165,15 +170,15 @@ export default function RegisterPage() {
           </div>
 
           {/* Primary Administrator Profile */}
-          <div className="p-4 rounded-xl bg-[#0f172a] border border-slate-800 space-y-3">
-            <p className="text-xs text-slate-300 font-semibold uppercase tracking-wider">
+          <div className="p-4 rounded-xl bg-[#181210] border border-[#D9662B]/18 space-y-3">
+            <p className="text-xs text-[#F7F4F0] font-semibold uppercase tracking-wider">
               2. Administrator Account
             </p>
 
             <div>
-              <label className="block text-xs font-medium text-slate-300 mb-1">Full Name</label>
+              <label className="block text-xs font-medium text-[#F7F4F0] mb-1">Full Name</label>
               <div className="relative">
-                <User className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+                <User className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#8A7B73]" />
                 <input
                   required
                   value={form.administratorName}
@@ -186,9 +191,9 @@ export default function RegisterPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label className="block text-xs font-medium text-slate-300 mb-1">Admin Email</label>
+                <label className="block text-xs font-medium text-[#F7F4F0] mb-1">Admin Email</label>
                 <div className="relative">
-                  <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+                  <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#8A7B73]" />
                   <input
                     required
                     type="email"
@@ -201,9 +206,9 @@ export default function RegisterPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-slate-300 mb-1">Phone (Optional)</label>
+                <label className="block text-xs font-medium text-[#F7F4F0] mb-1">Phone (Optional)</label>
                 <div className="relative">
-                  <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+                  <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#8A7B73]" />
                   <input
                     value={form.phone}
                     onChange={(e) => update("phone", e.target.value)}
@@ -215,9 +220,9 @@ export default function RegisterPage() {
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-slate-300 mb-1">Password</label>
+              <label className="block text-xs font-medium text-[#F7F4F0] mb-1">Password</label>
               <div className="relative">
-                <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+                <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#8A7B73]" />
                 <input
                   required
                   type={showPassword ? "text" : "password"}
@@ -230,7 +235,8 @@ export default function RegisterPage() {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 transition cursor-pointer"
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#8A7B73] hover:text-white transition cursor-pointer"
+                  aria-label={showPassword ? "Hide password" : "Show password"}
                 >
                   {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                 </button>
@@ -238,19 +244,19 @@ export default function RegisterPage() {
             </div>
           </div>
 
-          <div className="flex items-center gap-2 text-xs text-slate-400">
-            <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0" />
+          <div className="flex items-center gap-2 text-xs text-[#A89890]">
+            <CheckCircle2 className="h-4 w-4 text-[#D9662B] shrink-0" />
             <span>Includes organization workspace and credential verification authority.</span>
           </div>
 
           <button
             type="submit"
             disabled={submitting}
-            className="btn-primary w-full py-3 text-xs font-semibold shadow-sm mt-2 min-h-[44px]"
+            className="btn-primary w-full py-3 text-xs font-semibold mt-2 min-h-[44px]"
           >
             {submitting ? (
               <span className="flex items-center gap-2">
-                <span className="h-3.5 w-3.5 rounded-full border-2 border-slate-950/20 border-t-slate-950 animate-spin" />
+                <span className="h-3.5 w-3.5 rounded-full border-2 border-white/20 border-t-white animate-spin" />
                 Setting up workspace…
               </span>
             ) : (
@@ -262,10 +268,10 @@ export default function RegisterPage() {
           </button>
         </form>
 
-        <div className="pt-4 border-t border-slate-800 text-center">
-          <p className="text-xs text-slate-400">
+        <div className="pt-4 border-t border-[#D9662B]/15 text-center">
+          <p className="text-xs text-[#A89890]">
             Already registered?{" "}
-            <Link to="/login" className="text-emerald-400 hover:text-emerald-300 font-semibold">
+            <Link to="/login" className="text-[#D9662B] hover:text-[#F08047] font-semibold">
               Sign in to portal
             </Link>
           </p>
@@ -274,5 +280,6 @@ export default function RegisterPage() {
     </div>
   );
 }
+
 
 
